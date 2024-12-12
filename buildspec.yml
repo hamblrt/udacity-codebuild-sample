@@ -8,8 +8,6 @@ phases:
   build:
     commands:
       - echo Starting docker image build at `date` for image $IMAGE_REPO_NAME:$IMAGE_TAG      
-      - cd 1_codebuild/starter
-      - ls -l 
       - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
       - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG      
   post_build:
